@@ -1,0 +1,10 @@
+notes.md
+
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# IDE files
+.idea/*
