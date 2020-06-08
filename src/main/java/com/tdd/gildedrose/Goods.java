@@ -1,49 +1,55 @@
 package com.tdd.gildedrose;
 
 public class Goods {
-    private GoodsType type;
-    private int sellLn;
-    private int quality;
+    protected int sellLn;
+    protected int quality;
 
-    public Goods(GoodsType type, int sellLn, int quality) {
-        this.type = type;
+    public Goods(int sellLn, int quality) {
         this.sellLn = sellLn;
         this.quality = quality;
     }
 
     public void updateByDay() {
-        switch (type) {
-            case Common:
-                sellLn--;
-                decreaseQuality();
-                if (sellLn < 0) {
-                    decreaseQuality();
-                }
-                break;
-            case BackstagePass:
-                sellLn--;
-                if (sellLn < 0) {
-                    quality = 0;
-                } else if (sellLn < 5) {
-                    increaseQuality(3);
-                } else if (sellLn < 10) {
-                    increaseQuality(2);
-                } else {
-                    decreaseQuality();
-                }
-                break;
-            default:
+        sellLn--;
+        decreaseQuality();
+        if (sellLn < 0) {
+            decreaseQuality();
         }
-
     }
 
-    private void decreaseQuality() {
+//    public void updateByDay() {
+//        switch (type) {
+//            case Common:
+//                sellLn--;
+//                decreaseQuality();
+//                if (sellLn < 0) {
+//                    decreaseQuality();
+//                }
+//                break;
+//            case BackstagePass:
+//                sellLn--;
+//                if (sellLn < 0) {
+//                    quality = 0;
+//                } else if (sellLn < 5) {
+//                    increaseQuality(3);
+//                } else if (sellLn < 10) {
+//                    increaseQuality(2);
+//                } else {
+//                    decreaseQuality();
+//                }
+//                break;
+//            default:
+//        }
+//
+//    }
+
+    protected void decreaseQuality() {
         if (quality > 0) {
             quality--;
         }
     }
 
-    private void increaseQuality(int count) {
+    protected void increaseQuality(int count) {
         quality = quality + count;
     }
 
