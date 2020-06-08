@@ -11,10 +11,14 @@ public class Goods {
 
     public void updateByDay() {
         sellLn--;
-        if (quality > 0) {
-            quality--;
-        }
+        decreaseQuality();
         if (sellLn < 0) {
+            decreaseQuality();
+        }
+    }
+
+    private void decreaseQuality() {
+        if (quality > 0) {
             quality--;
         }
     }
