@@ -6,7 +6,7 @@ import org.junit.Test;
 public class GoodsTest {
 
     @Test
-    public void should_decrease_1_to_sellLn_and_quality_when_update_by_day() {
+    public void should_decrease_sellLn_from_3_to_2_and_quality_from_10_to_9_when_update_by_day() {
         int sellLn = 3;
         int quality = 10;
         Goods goods = new Goods(sellLn, quality);
