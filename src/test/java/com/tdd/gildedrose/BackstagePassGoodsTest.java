@@ -40,4 +40,16 @@ public class BackstagePassGoodsTest {
         Assert.assertEquals(4, goods.getSellLn());
         Assert.assertEquals(13, goods.getQuality());
     }
+
+    @Test
+    public void should_decrease_sellLn_from_0_to_expired_1_and_quality_increase_3_from_10_to_0_when_backstage_pass_expire() {
+        int sellLn = 0;
+        int quality = 10;
+        Goods goods = new Goods(GoodsType.BackstagePass, sellLn, quality);
+
+        goods.updateByDay();
+
+        Assert.assertEquals(-1, goods.getSellLn());
+        Assert.assertEquals(0, goods.getQuality());
+    }
 }
