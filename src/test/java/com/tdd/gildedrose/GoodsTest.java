@@ -28,4 +28,16 @@ public class GoodsTest {
         Assert.assertEquals(2, goods.getSellLn());
         Assert.assertEquals(0, goods.getQuality());
     }
+
+    @Test
+    public void should_decrease_sellLn_from_expired_1_to_expired_2_and_quality_from_10_to_8_when_update_by_day() {
+        int sellLn = -1;
+        int quality = 10;
+        Goods goods = new Goods(sellLn, quality);
+
+        goods.updateByDay();
+
+        Assert.assertEquals(-2, goods.getSellLn());
+        Assert.assertEquals(8, goods.getQuality());
+    }
 }

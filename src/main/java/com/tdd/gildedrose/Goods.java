@@ -14,6 +14,9 @@ public class Goods {
         if (quality > 0) {
             quality--;
         }
+        if (sellLn < 0) {
+            quality--;
+        }
     }
 
     public int getSellLn() {
