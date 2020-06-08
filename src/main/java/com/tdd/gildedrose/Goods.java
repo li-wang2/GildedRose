@@ -12,11 +12,23 @@ public class Goods {
     }
 
     public void updateByDay() {
-        sellLn--;
-        decreaseQuality();
-        if (sellLn < 0) {
-            decreaseQuality();
+        switch (type) {
+            case Common:
+                sellLn--;
+                decreaseQuality();
+                if (sellLn < 0) {
+                    decreaseQuality();
+                }
+                break;
+            case BackstagePass:
+                sellLn--;
+                if (sellLn < 10) {
+                    quality = quality + 2;
+                }
+                break;
+            default:
         }
+
     }
 
     private void decreaseQuality() {

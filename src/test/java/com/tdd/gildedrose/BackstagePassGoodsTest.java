@@ -16,4 +16,16 @@ public class BackstagePassGoodsTest {
         Assert.assertEquals(14, goods.getSellLn());
         Assert.assertEquals(9, goods.getQuality());
     }
+
+    @Test
+    public void should_decrease_sellLn_from_10_to_0_and_quality_from_10_to_12_when_update_by_day_and_sellLn_less_than_10() {
+        int sellLn = 10;
+        int quality = 10;
+        Goods goods = new Goods(GoodsType.BackstagePass, sellLn, quality);
+
+        goods.updateByDay();
+
+        Assert.assertEquals(9, goods.getSellLn());
+        Assert.assertEquals(12, goods.getQuality());
+    }
 }
