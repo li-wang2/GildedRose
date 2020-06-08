@@ -42,7 +42,7 @@ public class BackstagePassGoodsTest {
     }
 
     @Test
-    public void should_decrease_sellLn_from_0_to_expired_1_and_quality_increase_3_from_10_to_0_when_backstage_pass_expire() {
+    public void should_decrease_sellLn_from_0_to_expired_1_and_quality_decrease_from_10_to_0_when_backstage_pass_expire() {
         int sellLn = 0;
         int quality = 10;
         Goods goods = new Goods(GoodsType.BackstagePass, sellLn, quality);
@@ -50,6 +50,18 @@ public class BackstagePassGoodsTest {
         goods.updateByDay();
 
         Assert.assertEquals(-1, goods.getSellLn());
+        Assert.assertEquals(0, goods.getQuality());
+    }
+
+    @Test
+    public void should_decrease_sellLn_from_expired_1_to_expired_2_and_quality_from_0_to_0_when_backstage_pass_expire() {
+        int sellLn = -1;
+        int quality = 0;
+        Goods goods = new Goods(GoodsType.BackstagePass, sellLn, quality);
+
+        goods.updateByDay();
+
+        Assert.assertEquals(-2, goods.getSellLn());
         Assert.assertEquals(0, goods.getQuality());
     }
 }
