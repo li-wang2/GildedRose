@@ -11,7 +11,9 @@ public class Goods {
 
     public void updateByDay() {
         sellLn--;
-        quality--;
+        if (quality > 0) {
+            quality--;
+        }
     }
 
     public int getSellLn() {
