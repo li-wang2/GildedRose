@@ -22,8 +22,12 @@ public class Goods {
                 break;
             case BackstagePass:
                 sellLn--;
-                if (sellLn < 10) {
-                    quality = quality + 2;
+                if (sellLn < 5) {
+                    increaseQuality(3);
+                } else if (sellLn < 10) {
+                    increaseQuality(2);
+                } else {
+                    decreaseQuality();
                 }
                 break;
             default:
@@ -35,6 +39,10 @@ public class Goods {
         if (quality > 0) {
             quality--;
         }
+    }
+
+    private void increaseQuality(int count) {
+        quality = quality + count;
     }
 
     public int getSellLn() {
