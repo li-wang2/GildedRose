@@ -9,7 +9,7 @@ public class GoodsTest {
     public void should_decrease_sellLn_from_3_to_2_and_quality_from_10_to_9_when_update_by_day() {
         int sellLn = 3;
         int quality = 10;
-        Goods goods = new Goods(sellLn, quality);
+        Goods goods = new Goods(GoodsType.Common, sellLn, quality);
 
         goods.updateByDay();
 
@@ -21,7 +21,7 @@ public class GoodsTest {
     public void should_decrease_sellLn_from_3_to_2_and_quality_from_0_to_0_when_update_by_day() {
         int sellLn = 3;
         int quality = 0;
-        Goods goods = new Goods(sellLn, quality);
+        Goods goods = new Goods(GoodsType.Common, sellLn, quality);
 
         goods.updateByDay();
 
@@ -33,7 +33,7 @@ public class GoodsTest {
     public void should_decrease_sellLn_from_expired_1_to_expired_2_and_quality_from_10_to_8_when_update_by_day() {
         int sellLn = -1;
         int quality = 10;
-        Goods goods = new Goods(sellLn, quality);
+        Goods goods = new Goods(GoodsType.Common, sellLn, quality);
 
         goods.updateByDay();
 
@@ -45,7 +45,7 @@ public class GoodsTest {
     public void should_decrease_sellLn_from_expired_1_to_expired_2_and_quality_from_0_to_0_when_update_by_day() {
         int sellLn = -1;
         int quality = 0;
-        Goods goods = new Goods(sellLn, quality);
+        Goods goods = new Goods(GoodsType.Common, sellLn, quality);
 
         goods.updateByDay();
 
